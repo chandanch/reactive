@@ -5,6 +5,9 @@ var scores = [12,34,5,6,7];
 // var source = Observable.from(scores);
 let source = Observable.create(observer => {
     for(let score of scores) {
+        if (score === 5) {
+            observer.error("Something went wrong");
+        }
         observer.next(score);
     }
     observer.complete();
