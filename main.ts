@@ -2,7 +2,13 @@ import { Observable, Observer } from "rxjs";
 
 var scores = [12,34,5,6,7];
 
-var source = Observable.from(scores);
+// var source = Observable.from(scores);
+let source = Observable.create(observer => {
+    for(let score of scores) {
+        observer.next(score);
+    }
+    observer.complete();
+});
 
 source.subscribe(
     data => {
