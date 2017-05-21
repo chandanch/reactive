@@ -4,19 +4,24 @@
 
 import { Observable } from "rxjs";
 
-var scores = [12,34,5,6,7];
+var scores = [21,24,25,26,28];
 
 // Pass a function with observer object as a parameter to create method
 let source = Observable.create(observer => {
-    // Iterate through the scores and send the each score to the data stream using next()
-    for(let score of scores) {
-        // if (score === 5) {
-        //     observer.error("Something went wrong");
-        // }
-        observer.next(score);
+    var index = 0;
+    // Function to provide values to the observable.next() by incrementing the index
+    let produceValues = () => {
+        // send the scores to the data stream through the index of the scores array
+        observer.next(scores[index++]);
+        if(index < scores.length) {
+            setTimeout(produceValues, 2000);
+        } 
+        else {
+            // once all the data has been sent through data stream
+            observer.complete();
+        }
     }
-    // once all the data has been sent through data stream
-    observer.complete();
+    produceValues();
 });
 
 // an observer which subscribe to the observable
@@ -31,20 +36,3 @@ source.subscribe(
         console.log("Completed");
     }
 )
-// class MyObserver implements Observer<number> {
-
-//     next(value) {
-//         console.log(`value: ${value}`);
-//     }
-
-//     error(e) {
-//         console.log(`error: ${e}`)
-//     }
-
-//     complete() {
-//         console.log("Task completed");
-//     }
-// }
-
-// source.subscribe(new MyObserver());
-// source.subscribe(new MyObserver());
