@@ -13,7 +13,9 @@ let source = Observable.create(observer => {
     let produceValues = () => {
         // send the scores to the data stream through the index of the scores array
         observer.next(scores[index++]);
+        // check if the index is less the scores array length
         if(index < scores.length) {
+            // invoke the producevalues after 2000ms delay
             setTimeout(produceValues, 2000);
         } 
         else {
