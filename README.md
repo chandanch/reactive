@@ -14,3 +14,6 @@ Topics covered:
 * Using the `observer.next()` to send the data to data stream
 * using the `observer.complete()` to indicate the complete
 * using the `observer.error()` to emit the error to the observer(Will be handled in depth later)
+
+### Part-3
+* Pass the data to datastream asynchronously via `setTimeout()`
