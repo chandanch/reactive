@@ -1,8 +1,11 @@
 /**
 * @desc Creates an Observable and Observer 
 */
+//import { Observable } from "rxjs";
 
-import { Observable } from "rxjs";
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/filter";
 
 var scores = [2,4,6,8];
 
