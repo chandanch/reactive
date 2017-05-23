@@ -3,6 +3,7 @@
 */
 //import { Observable } from "rxjs";
 
+// import only the modules and operators required
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/filter";
