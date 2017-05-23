@@ -23,3 +23,7 @@ Topics covered:
 * Categories of operators
 * using map operator
 * using filter operator
+
+### Part-5
+* Impact of imports on file size and browser
+* Import only what is required
