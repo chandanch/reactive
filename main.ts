@@ -29,6 +29,7 @@ let source = Observable.create(observer => {
    here we are multiplying the value that we obtain 
 */
 .map(n => n * 3)
+// filter operator to filter the data by passing the filter expression
 .filter(n => n>6);
 
 // an observer which subscribe to the observable
