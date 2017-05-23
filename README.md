@@ -17,3 +17,9 @@ Topics covered:
 
 ### Part-3
 * Pass the data to datastream asynchronously via `setTimeout()`
+
+### Part-4
+* Introduction to operators
+* Categories of operators
+* using map operator
+* using filter operator
