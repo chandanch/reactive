@@ -27,3 +27,10 @@ Topics covered:
 ### Part-5
 * Impact of imports on file size and browser
 * Import only what is required
+
+### Part-6 (Advanced)
+* Introducing a new data source through mouse events
+* Using the `fromEvent()` to get the data from `mousemove`
+* Processing the data using `map()` and extracting the `clientX` and `clientY` values for event
+* Using `filter()` to filter the data
+* creating a circular div and passing the `left` and `top` style values dynamically to track the mouse movement
