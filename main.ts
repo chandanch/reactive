@@ -5,35 +5,35 @@
 import { Observable } from "rxjs";
 
 
-let circle = document.getElementById('circle');
+let button = document.getElementById('getMoviesBtn');
+let output = document.getElementById('moviesContainer');
 // 1. Create an observable using the fromEvent
-// 2. Pass the document and movemove as the event to the fromEvent
-let source = Observable.fromEvent(document, "mousemove")
-    /* 3. Process the data recieved from the mouse event, since the mouse event 
-    * returns many properties we capture and process only the clientx and clienty
-    */
-    .map((e: MouseEvent) => {
-        // 4.For every mouse event 'e' pass the event to the function which will return an object
-        return {
-            // get the clientX property
-            x: e.clientX,
-            // get the clientY property
-            y: e.clientY
-        }
-    })
-    // Emit the events for which the clientX is less than 1000
-    .filter(value => value.x < 1000)
-    // Using the temporal operator send the data to observer after 300ms delay
-    .delay(300);
 
-function onNext(value) {
-    circle.style.left = value.x;
-    circle.style.top = value.y;
+let source = Observable.fromEvent(button, "click");
+
+function getMovies(url : string) {
+    let xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("load", () => {
+        let movies = JSON.parse(xhr.responseText);
+        movies.forEach(movie => {
+            let moviesListContainer = document.createElement("div");
+            moviesListContainer.innerText = movie.title;
+            output.appendChild(moviesListContainer);
+        });  
+
+    })
+
+    xhr.open("GET", url);
+    xhr.send();
+
 }
+
 // an observer which subscribe to the observable
 source.subscribe(
-    //the onNext is used to handle the data values recieved
-    onNext, 
+    buttonClickevent => {
+        getMovies('movies.json');
+    },
     error => {
         console.log(`Error: ${error}`)
     },
