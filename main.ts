@@ -19,6 +19,7 @@ function getMovies(url : string) {
         movies.forEach(movie => {
             let moviesListContainer = document.createElement("div");
             moviesListContainer.innerText = movie.title;
+            moviesListContainer.style.color = "#387EF5";
             output.appendChild(moviesListContainer);
         });  
 
