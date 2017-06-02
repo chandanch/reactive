@@ -34,3 +34,9 @@ Topics covered:
 * Processing the data using `map()` and extracting the `clientX` and `clientY` values for event
 * Using `filter()` to filter the data
 * creating a circular div and passing the `left` and `top` style values dynamically to track the mouse movement
+
+### Part-7
+* Making the HTTP request to get data from server
+* Create a observable that will emit the click event
+* Handling the response from the request
+* Paring the response & Loading the data on the page.
