@@ -5,12 +5,12 @@
 import { Observable } from "rxjs";
 
 
-let button = document.getElementById('getMoviesBtn');
-let output = document.getElementById('moviesContainer');
+let getMoviesBtn = document.getElementById('getMoviesBtn');
+let moviesContainer = document.getElementById('moviesContainer');
 // Create an observable using the fromEvent
 
 // observable to handle button click 
-let source = Observable.fromEvent(button, "click");
+let source = Observable.fromEvent(getMoviesBtn, "click");
 
 /**
  * @desc Get the data by making HTTP request
@@ -30,7 +30,7 @@ function getMovies(url : string) {
             moviesListContainer.innerText = movie.title;
             moviesListContainer.style.color = "#387EF5";
             // append the movie the movies container
-            output.appendChild(moviesListContainer);
+            moviesContainer.appendChild(moviesListContainer);
         });  
 
     })
