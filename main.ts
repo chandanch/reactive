@@ -48,25 +48,12 @@ function renderMovies(movies) {
 
 // an observer which subscribe to the observable
 source.flatMap(buttonClickEvent => getData("movies.json"))
-      .subscribe(
-          renderMovies,
-          error => {
-              console.log(`Error: ${error}`)
-          },
-          () => {
-              console.log("Completed");
-          }
-      )
-
-// source.subscribe(
-//     buttonClickevent => {
-//         getMovies('movies.json');
-//     },
-//     error => {
-//         console.log(`Error: ${error}`)
-//     },
-//     () => {
-//         console.log("Completed");
-//     }
-// )
-
+    .subscribe(
+        renderMovies,
+        error => {
+            console.log(`Error: ${error}`)
+        },
+        () => {
+            console.log("Completed");
+        }
+    )
