@@ -40,3 +40,8 @@ Topics covered:
 * Create a observable that will emit the click event
 * Handling the response from the request
 * Paring the response & Loading the data on the page.
+
+### Part-8
+* Using `flatMap` operator
+* Handling nested observables
+* Subscribing for inner observables using flatmap
