@@ -48,6 +48,7 @@ function renderMovies(movies) {
         let moviesListContainer = document.createElement("div");
         moviesListContainer.innerText = movie.title;
         moviesListContainer.style.color = "#387EF5";
+        moviesListContainer.style.fontFamily = 'cursive';
         // append the movie the movies container
         moviesContainer.appendChild(moviesListContainer);
     });
