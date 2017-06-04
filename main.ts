@@ -17,14 +17,17 @@ let source = Observable.fromEvent(getMoviesBtn, "click");
  * @param url
  */
 function getData(url : string) {
-   return Observable.create(observer => {
+    // returns an observable
+    return Observable.create(observer => {
         // Create an XHMLHTTPRequest object
         let xhr = new XMLHttpRequest();
         // event handler for handling the response from the server
         xhr.addEventListener("load", () => {
             // parse the response and add to the movies
             let movies = JSON.parse(xhr.responseText);
+            // Pass the data received to the Observer
             observer.next(movies);
+            // all the data are recieved from the server. 
             observer.complete();
         })
 
@@ -35,6 +38,10 @@ function getData(url : string) {
     })
 }
 
+/**
+ * @desc Render movies on the page
+ * @param movies 
+ */
 function renderMovies(movies) {
     // for each movie add the movie to the moviesListcontainer
     movies.forEach(movie => {
@@ -47,6 +54,11 @@ function renderMovies(movies) {
 }
 
 // an observer which subscribe to the observable
+/* using flatmap to subscribe for inner obervable 
+* flatmap detects that there is an inner observable and 
+* subscribes to the inner obervable and delivers data through the pipeline,
+* into the next handler which is produced by inner observable.
+*/
 source.flatMap(buttonClickEvent => getData("movies.json"))
     .subscribe(
         renderMovies,
