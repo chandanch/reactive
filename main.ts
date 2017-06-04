@@ -53,6 +53,12 @@ function renderMovies(movies) {
     });
 }
 
+// Get movies is not invoked since it is not subscribed to the observable
+// getData("movies.json");
+
+// once we subscribe to observable then the HTTP requests are made to get the data
+getData("movies.json").subscribe(renderMovies); 
+
 // an observer which subscribe to the observable
 /* using flatmap to subscribe for inner obervable 
 * flatmap detects that there is an inner observable and 
